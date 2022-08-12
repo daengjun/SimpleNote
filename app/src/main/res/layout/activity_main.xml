@@ -1,68 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-<EditText
-    android:layout_marginTop="30dp"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    android:id="@+id/inputName"
-    android:layout_width="300dp"
-    tools:text="여기다 닉네임 입력"
-    android:layout_height="wrap_content"/>
+    <!-- 메인 화면 구성 -->
 
-    <EditText
+    <Button
+        android:id="@+id/writing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/inputName"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="10dp"
+        android:text="글쓰기"
+        app:layout_constraintRight_toLeftOf="@id/choice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="선택"
+        app:layout_constraintRight_toLeftOf="@id/delete"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="삭제"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/inputText"
-        android:layout_width="300dp"
-        tools:text="여기다 내용을 입력"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/DeleteButton"
-        app:layout_constraintTop_toBottomOf="@+id/inputText"
+        tools:listitem="@layout/memo_list_item"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-
-    <Button
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="저장 하기"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/inputButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
-
-
-    <Button
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="삭제 하기"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/inputButton"
-        android:id="@+id/DeleteButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
-
+        app:layout_constraintTop_toBottomOf="@id/writing" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
