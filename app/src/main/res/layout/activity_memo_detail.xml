@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WritingActivity">
+    tools:context=".MemoDetailActivity">
+
+
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="수정"
+        app:layout_constraintRight_toLeftOf="@id/save"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/save"
@@ -13,7 +26,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:text="저장"
+        android:text="삭제"
         app:layout_constraintRight_toLeftOf="@id/back"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,20 +41,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/titleText"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:gravity="top"
-        android:padding="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/save"
-        tools:text="제목을 작성하면 됩니다" />
 
-    <EditText
+    <TextView
+        android:textSize="20sp"
         android:id="@+id/contentText"
+        android:textStyle="bold"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="10dp"
@@ -51,8 +55,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText"
-        tools:text="여기다 내용을 입력 하면 됨" />
+        app:layout_constraintTop_toBottomOf="@+id/save"
+        tools:text="저장된 내용이 표시 됩니다" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

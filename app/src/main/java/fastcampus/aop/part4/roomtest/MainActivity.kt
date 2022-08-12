@@ -1,18 +1,12 @@
 package fastcampus.aop.part4.roomtest
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.TextView
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import fastcampus.aop.part4.roomtest.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         db = UserDatabase.getInstance(applicationContext)!!
 
         val layoutManager = LinearLayoutManager(this)
-        val adapter = RecyclerViewAdapter()
+        val adapter = RecyclerViewAdapter(this)
         binding.recyclerView.layoutManager = layoutManager
 
         CoroutineScope(Dispatchers.IO).launch { // 다른애 한테 일 시키기
@@ -81,5 +75,8 @@ class MainActivity : AppCompatActivity() {
         mBinding = null
         super.onDestroy()
     }
+
+
+
 
 }
