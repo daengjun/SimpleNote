@@ -16,11 +16,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:text="수정"
-        app:layout_constraintRight_toLeftOf="@id/save"
+        app:layout_constraintRight_toLeftOf="@id/delete"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -55,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/save"
+        app:layout_constraintTop_toBottomOf="@+id/delete"
         tools:text="저장된 내용이 표시 됩니다" />
 
 
