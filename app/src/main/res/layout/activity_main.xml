@@ -18,25 +18,25 @@
         app:layout_constraintRight_toLeftOf="@id/choice"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:text="선택"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/ic_baseline_check_box_outline_blank_24"
         app:layout_constraintRight_toLeftOf="@id/delete"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/ic_baseline_delete_24"
         android:layout_marginRight="10dp"
-        android:text="삭제"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
