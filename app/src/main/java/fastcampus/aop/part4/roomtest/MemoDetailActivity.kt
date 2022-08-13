@@ -1,10 +1,8 @@
 package fastcampus.aop.part4.roomtest
 
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
@@ -28,7 +26,7 @@ class MemoDetailActivity : AppCompatActivity() {
     private lateinit var content: String
     private lateinit var id: String
     private var checkIntent = true
-    private var checkSave = false
+//    private var checkSave = false
 
     private lateinit var userViewModel: UserViewmodel
 
@@ -52,7 +50,7 @@ class MemoDetailActivity : AppCompatActivity() {
         if (!intent.hasExtra("check")) {
             data = intent.getSerializableExtra("data") as User
             checkIntent = false
-            checkSave = false
+//            checkSave = false
 
             binding.saveLayout.isVisible = false
             binding.editLayout.isVisible = true
@@ -61,6 +59,7 @@ class MemoDetailActivity : AppCompatActivity() {
             content = data.Content
             id = data.id.toString()
 
+            binding.title.text = data.name
             binding.contentText1.text = data.Content
 
         } else {
@@ -94,12 +93,14 @@ class MemoDetailActivity : AppCompatActivity() {
             binding.editLayout.isVisible = false
 
 
-            if (checkSave) {
-                binding.titleText.setText(binding.titleText.text.toString())
-            } else {
-                binding.titleText.setText(data.name)
+//            if (checkSave) {
+//                binding.titleText.setText(binding.titleText.text.toString())
+//            } else {
+//                binding.titleText.setText(data.name)
+//
+//            }
 
-            }
+            binding.titleText.setText(binding.title.text.toString())
             binding.contentText.setText(binding.contentText1.text.toString())
 
 
@@ -126,8 +127,9 @@ class MemoDetailActivity : AppCompatActivity() {
                 binding.editLayout.isVisible = true
                 binding.saveLayout.isVisible = false
 
+                binding.title.text = binding.titleText.text.toString()
                 binding.contentText1.text = binding.contentText.text.toString()
-                checkSave = true
+//                checkSave = true
 
 
             } else {
@@ -141,8 +143,9 @@ class MemoDetailActivity : AppCompatActivity() {
                 binding.editLayout.isVisible = true
                 binding.saveLayout.isVisible = false
 
+                binding.title.text = binding.titleText.text.toString()
                 binding.contentText1.text = binding.contentText.text.toString()
-                checkSave = true
+//                checkSave = true
 
             }
 
