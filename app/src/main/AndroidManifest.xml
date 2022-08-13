@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomTest">
         <activity android:name=".MemoDetailActivity"/>
-        <activity android:name=".WritingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

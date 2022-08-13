@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.writing.setOnClickListener {
-            val intent = Intent(this, WritingActivity::class.java)
+            val intent = Intent(this, MemoDetailActivity::class.java)
+            intent.putExtra("check","ok")
             startActivity(intent)
         }
 
