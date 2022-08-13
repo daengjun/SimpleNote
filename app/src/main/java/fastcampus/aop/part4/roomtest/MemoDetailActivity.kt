@@ -76,7 +76,7 @@ class MemoDetailActivity : AppCompatActivity() {
 
         binding.delete.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch { // 다른애 한테 일 시키기
-                db!!.userDao().deleteUserByName(data.name)
+                db!!.userDao().deleteUserByName(binding.title.text.toString())
                 finish()
             }
         }
