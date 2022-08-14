@@ -39,7 +39,13 @@ class RecyclerViewAdapter(private val context: Context) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = userList[position]
 
-        holder.binding.memoTitle.text = currentItem.name
+        if(currentItem.name.equals("")){
+            holder.binding.memoTitle.text = "제목없음"
+        }
+        else{
+            holder.binding.memoTitle.text = currentItem.name
+        }
+
             holder.itemView.setOnClickListener {
 
                 if(checkListOn){

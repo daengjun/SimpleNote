@@ -1,10 +1,12 @@
 package fastcampus.aop.part4.roomtest
 
+import android.content.DialogInterface
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import fastcampus.aop.part4.roomtest.databinding.ActivityMemoDetailBinding
@@ -75,15 +77,61 @@ class MemoDetailActivity : AppCompatActivity() {
         }
 
         binding.delete.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch { // 다른애 한테 일 시키기
-                db!!.userDao().deleteUserByName(binding.title.text.toString())
-                finish()
-            }
+
+
+
+            val builder = AlertDialog.Builder(this)
+                .setTitle("메모 삭제")
+                .setMessage("해당 메모를 삭제 하시겠습니까?")
+                .setPositiveButton("확인",
+                    DialogInterface.OnClickListener{ dialog, which ->
+
+                        CoroutineScope(Dispatchers.IO).launch { // 다른애 한테 일 시키기
+                            db!!.userDao().deleteUserByName(binding.title.text.toString())
+                            finish()
+                        }
+
+
+                    })
+                .setNegativeButton("취소",
+                    DialogInterface.OnClickListener { dialog, which ->
+
+                    })
+            builder.show()
+
+
+
+
         }
 
         binding.back.setOnClickListener {
-            binding.editLayout.isVisible = true
-            binding.saveLayout.isVisible = false
+
+
+
+                val builder = AlertDialog.Builder(this)
+                    .setTitle("뒤로 가기")
+                    .setMessage("뒤로 가면 내용이 저장 되지 않습니다.")
+                    .setPositiveButton("확인",
+                        DialogInterface.OnClickListener{ dialog, which ->
+
+                            if(checkIntent){
+                                onBackPressed()
+                            }
+                            else{
+                                binding.editLayout.isVisible = true
+                                binding.saveLayout.isVisible = false
+                            }
+
+
+                        })
+                    .setNegativeButton("취소",
+                        DialogInterface.OnClickListener { dialog, which ->
+
+                        })
+                builder.show()
+
+
+
 
         }
 

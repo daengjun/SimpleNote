@@ -1,10 +1,13 @@
 package fastcampus.aop.part4.roomtest
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +18,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var contexts: Context
     private lateinit var db: UserDatabase
     private lateinit var userViewModel: UserViewmodel
 
@@ -29,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         db = UserDatabase.getInstance(applicationContext)!!
 
+        contexts = binding.delete.context
+
         val layoutManager = LinearLayoutManager(this)
         val adapter = RecyclerViewAdapter(this)
         binding.recyclerView.layoutManager = layoutManager
@@ -39,14 +45,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.choice.setOnClickListener {
+
             adapter.checkListOn = binding.choice.isChecked
 
-            if(!adapter.checkListOn){
+            if (!adapter.checkListOn) {
                 adapter.clickEvent()
             }
         }
-
-//        adapter.setOnItemClickListener(this)
 
         binding.writing.setOnClickListener {
             adapter.checkListOn = false
@@ -56,31 +61,45 @@ class MainActivity : AppCompatActivity() {
 
 
             val intent = Intent(this, MemoDetailActivity::class.java)
-            intent.putExtra("check","ok")
+            intent.putExtra("check", "ok")
             startActivity(intent)
 
         }
 
         binding.delete.setOnClickListener {
 
-//            Toast.makeText(this,"삭제버튼 눌림",Toast.LENGTH_SHORT).show()
-
-//            adapter.setOnItemClickListener(this)
-
-            adapter.setOnItemClickListener(object : OnItemClickListener{
+            adapter.setOnItemClickListener(object : OnItemClickListener {
                 override fun onItemClick(data: ArrayList<String>) {
-                    Log.d("ㅇㄴㅇㄴ", "onItemClick: 뺴앰 $data")
 
+                    if(data.size > 0){
 
-                        CoroutineScope(Dispatchers.IO).launch {
-                            // 다른애 한테 일 시키기
-                            for(i:String in data) {
+                        val builder = AlertDialog.Builder(contexts)
+                        builder.setTitle("${data.size}개의 메모를 삭제 하시겠습니까?")
+                            .setMessage("$data")
+                            .setNegativeButton("취소",
+                                DialogInterface.OnClickListener { dialog, id ->
 
-                                db!!.userDao().deleteUserByName(i)
+                                })
+                            .setPositiveButton("확인",
+                                DialogInterface.OnClickListener { dialog, id ->
 
-                            }
+                                    CoroutineScope(Dispatchers.IO).launch {
+                                        // 다른애 한테 일 시키기
+                                        for (i: String in data) {
 
-                        }
+                                            db!!.userDao().deleteUserByName(i)
+                                        }
+                                    }
+
+                                    adapter.checkListOn = false
+                                    adapter.clickEvent()
+
+                                    binding.choice.isChecked = false
+
+                                })
+                        builder.show()
+
+                    }
 
 
 
@@ -89,27 +108,9 @@ class MainActivity : AppCompatActivity() {
             })
 
 
-                adapter.checkListOn = false
-                adapter.clickEvent()
-
-                binding.choice.isChecked = false
-
-//            adapter.delete()
             adapter.delete()
 
-
-
         }
-
-
-//        buttonClick.setOnClickListener {
-//
-//            var newUser = User(text1.text.toString(), text2.text.toString())
-//
-//            CoroutineScope(Dispatchers.IO).launch {
-//                db!!.userDao().insert(newUser)
-//            }
-//        }
 
         userViewModel = ViewModelProvider(
             this,
@@ -120,13 +121,6 @@ class MainActivity : AppCompatActivity() {
             adapter.setData(it)
         })
 
-//        deleteButtonClick.setOnClickListener {
-//
-//            CoroutineScope(Dispatchers.IO).launch { // 다른애 한테 일 시키기
-//                db!!.userDao().deleteUserByName(text1.text.toString())
-//                Log.d("test", "${db.userDao().getAll()}")
-//            }
-//        }
     }
 
     override fun onDestroy() {
@@ -135,15 +129,6 @@ class MainActivity : AppCompatActivity() {
 
         super.onDestroy()
     }
-
-//    override fun onItemClick(data: ArrayList<String>) {
-//        TODO("Not yet implemented")
-//    }
-
-//    override fun onItemClick(data: ArrayList<String>) {
-//
-//        Log.d("ㅇㄴㅇㄴ", "onItemClick: 시밸래매 ")
-//    }
 
 
 }

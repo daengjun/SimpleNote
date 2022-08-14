@@ -8,90 +8,109 @@
     tools:context=".MemoDetailActivity">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/editLayout"
-    tools:visibility="gone"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="visible">
 
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/ic_baseline_description_24"
-        app:layout_constraintRight_toLeftOf="@id/delete"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/edit"
+            app:layout_constraintRight_toLeftOf="@id/delete"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="25dp"
-        android:background="@drawable/ic_baseline_delete_24"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_baseline_delete_24"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/title"
-        android:paddingStart="10dp"
-        android:gravity="center|left"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/black"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/contentText1"
-        app:layout_constraintRight_toLeftOf="@id/edit"
-        app:layout_constraintLeft_toRightOf="@+id/back1"
-        tools:text="여기에 제목 표시"
-        android:lines="1"
-        android:layout_width="0dp"
-        android:layout_height="50dp"/>
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/ScrollViewLayout"
+            app:layout_constraintLeft_toRightOf="@+id/back1"
+            app:layout_constraintRight_toLeftOf="@id/edit"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-    <Button
-        android:id="@+id/back1"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/ic_baseline_arrow_back_24"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|center"
+                android:gravity="left|center"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="여기에 제목 표시" />
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/back1"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ScrollViewLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/shape_drawable_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/delete">
+
+            <ScrollView
+                android:id="@+id/ScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/contentText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:paddingStart="15dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="저장된 내용이 표시 됩니다" />
 
 
-    <TextView
-        android:paddingStart="15dp"
-        android:paddingTop="20dp"
-        android:textSize="20sp"
-        android:id="@+id/contentText1"
-        android:textStyle="bold"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/shape_drawable_content"
-        android:gravity="top"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/delete"
-        tools:text="저장된 내용이 표시 됩니다" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/saveLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:visibility="gone">
 
         <Button
             android:id="@+id/save"
@@ -104,69 +123,70 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <Button-->
-<!--            android:id="@+id/back"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:background="@drawable/ic_baseline_settings_backup_restore_24"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/back"-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="45dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:layout_marginRight="10dp"-->
+        <!--            android:background="@drawable/ic_baseline_settings_backup_restore_24"-->
+        <!--            app:layout_constraintRight_toRightOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--        <EditText-->
-<!--            android:id="@+id/titleText"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:gravity="top"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:padding="10dp"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/save"-->
-<!--            tools:text="제목을 작성하면 됩니다" />-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/titleText"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:gravity="top"-->
+        <!--            android:layout_marginRight="10dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_marginTop="30dp"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:padding="10dp"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintRight_toRightOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/save"-->
+        <!--            tools:text="제목을 작성하면 됩니다" />-->
 
-<!--        <EditText-->
-<!--            android:id="@+id/contentText"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:background="@null"-->
-<!--            android:gravity="top"-->
-<!--            android:padding="10dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/titleText"-->
-<!--            tools:text="여기다 내용을 입력 하면 됨" />-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/contentText"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:background="@null"-->
+        <!--            android:gravity="top"-->
+        <!--            android:padding="10dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintRight_toRightOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/titleText"-->
+        <!--            tools:text="여기다 내용을 입력 하면 됨" />-->
 
 
         <EditText
-            android:singleLine="true"
-            android:inputType="text"
             android:id="@+id/titleText"
-            android:paddingStart="10dp"
-            android:gravity="center|left"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/black"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:background="@null"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/contentText"
-            app:layout_constraintRight_toLeftOf="@id/save"
-            app:layout_constraintLeft_toRightOf="@+id/back"
-            tools:text="여기에 제목 표시"
-            android:lines="1"
             android:layout_width="0dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@null"
+            android:gravity="center|left"
+            android:inputType="text"
+            android:lines="1"
+            android:paddingStart="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:hint="제목을 입력"
+            app:layout_constraintBottom_toTopOf="@+id/contentText"
+            app:layout_constraintLeft_toRightOf="@+id/back"
+            app:layout_constraintRight_toLeftOf="@id/save"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="여기에 제목 표시" />
 
 
         <Button
@@ -181,21 +201,21 @@
 
 
         <EditText
-            android:inputType="text"
-            android:paddingStart="15dp"
-            android:paddingTop="20dp"
-            android:textSize="20sp"
             android:id="@+id/contentText"
-            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:textColor="@color/black"
-            android:layout_marginBottom="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/shape_drawable_content"
             android:gravity="top"
+            android:paddingStart="15dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -204,8 +224,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
