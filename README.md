@@ -24,8 +24,16 @@
 
 -------------------------
 
-**3. 서브 타임 라인** 
+**3. 메모 삭제** 
 
-![333](https://user-images.githubusercontent.com/98893006/168512585-2ac018c7-9a06-471c-80b2-77aa771d4342.png)
+![삭제1](https://user-images.githubusercontent.com/98893006/184536332-664dcc4e-4f7d-4858-9974-0bda6be89639.jpg)  
+
+![삭제2](https://user-images.githubusercontent.com/98893006/184536335-1cca3bfb-a059-4870-b433-91da6c90897e.jpg)  
+
+![삭제3](https://user-images.githubusercontent.com/98893006/184536340-f46e16fc-3ae8-4e04-8113-e4defcb97c9e.jpg)  
+
+![삭제4](https://user-images.githubusercontent.com/98893006/184536350-1bcad9c5-83f8-41ae-9286-b0b4d021b9ee.jpg)  
+
+![삭제5](https://user-images.githubusercontent.com/98893006/184536356-58889a9e-e97f-46ca-8d2e-bf3d61f6fdc1.jpg)  
 
 -------------------------
