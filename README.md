@@ -1,6 +1,6 @@
 # SimpleNote
-**코틀린 언어로 제작한 간단한 메모앱 입니다.**  
-**APK 파일 : https://daengjundl.tistory.com/42**
+>**코틀린 언어로 제작한 간단한 메모앱 입니다.**  
+>**APK 파일 : https://daengjundl.tistory.com/42**
 
 
 # 기능 구성
