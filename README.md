@@ -5,7 +5,9 @@
 
 # 기능 구성
 **1. 메모 작성** 
-  
+ * 새 글 작성 버튼 클릭
+ * 내용 입력후 저장 버튼 클릭
+ 
   ![새글 작성](https://user-images.githubusercontent.com/98893006/184534846-a4488a19-c4ab-4343-949c-9d7323aea809.jpg)  
   
   ![새글 작성2](https://user-images.githubusercontent.com/98893006/184534847-4408dae1-0757-4248-9cfd-d146248cfea3.jpg)  
