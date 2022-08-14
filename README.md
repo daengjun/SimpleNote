@@ -1,5 +1,7 @@
 # SimpleNote
 **코틀린 언어로 제작한 간단한 메모앱 입니다.**
+**apk 파일 링크 : https://daengjundl.tistory.com/42**
+
 
 # 기능 구성
 **1. 메모 작성** 
@@ -35,5 +37,3 @@
 ![삭제4](https://user-images.githubusercontent.com/98893006/184536350-1bcad9c5-83f8-41ae-9286-b0b4d021b9ee.jpg)  
 
 ![삭제5](https://user-images.githubusercontent.com/98893006/184536356-58889a9e-e97f-46ca-8d2e-bf3d61f6fdc1.jpg)  
-
-**apk 파일 링크 : https://daengjundl.tistory.com/42**
